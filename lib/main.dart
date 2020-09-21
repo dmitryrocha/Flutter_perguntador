@@ -1,3 +1,5 @@
+import 'dart:core';
+import 'Pergunta.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(Quizzler());
@@ -25,6 +27,20 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+
+  int perguntaNumero = 0;
+
+  List<Icon> placar = [];
+
+  List<Pergunta> listaDePerguntas = [
+    Pergunta('Tonga é um país da África?', false),
+    Pergunta('A África está localizada nos quatro hemisférios terrestres (Hemisférios Norte, Sul, Ocidental e Oriental)?', true),
+    Pergunta('Porto Rico é um país?', false),
+    Pergunta('O Vaticano é mais densamente populoso que a China?', true),
+  ];
+  
+
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +53,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
+                perguntas[perguntaNumero],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -61,6 +77,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                if(respostas[perguntaNumero]==true) {
+                  print('Acertou');
+                } else {
+                  print('Errou!');
+                }
+                setState(() {
+                  perguntaNumero++;
+                });
                 //The user picked true.
               },
             ),
@@ -79,12 +103,30 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                if(respostas[perguntaNumero]==false) {
+                  print('Acertou');
+                } else {
+                  print('Errou!');
+                }
+                setState(() {
+                  perguntaNumero++;
+                });
                 //The user picked false.
               },
             ),
           ),
         ),
-        //TODO: Add a Row here as your score keeper
+        Row(
+          children: placar,
+            // Icon(
+            //   Icons.check,
+            //   color: Colors.green,
+            // ),
+            // Icon(
+            //   Icons.close,
+            //   color: Colors.red,
+            // ),
+        )
       ],
     );
   }
