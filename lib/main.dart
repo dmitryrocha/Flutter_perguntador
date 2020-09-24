@@ -1,6 +1,8 @@
-import 'dart:core';
-import 'Pergunta.dart';
+import 'package:Perguntador/CerebroPerguntador.dart';
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+
+CerebroPerguntador cerebroPerguntador = CerebroPerguntador();
 
 void main() => runApp(Quizzler());
 
@@ -27,19 +29,49 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-
-  int perguntaNumero = 0;
-
   List<Icon> placar = [];
 
-  List<Pergunta> listaDePerguntas = [
-    Pergunta('Tonga é um país da África?', false),
-    Pergunta('A África está localizada nos quatro hemisférios terrestres (Hemisférios Norte, Sul, Ocidental e Oriental)?', true),
-    Pergunta('Porto Rico é um país?', false),
-    Pergunta('O Vaticano é mais densamente populoso que a China?', true),
-  ];
-  
+  void checagem(bool respostaDada) {
+    setState(() {
+      if (respostaDada ==
+          cerebroPerguntador
+              .getResposta(cerebroPerguntador.getPerguntaNumero())) {
+        placar.add(Icon(
+          Icons.check,
+          color: Colors.green,
+        ));
+      } else {
+        placar.add(Icon(
+          Icons.close,
+          color: Colors.red,
+        ));
+      }
+      if(cerebroPerguntador.getPerguntaNumero() < cerebroPerguntador.tamanhoLista()-1) {
+        cerebroPerguntador.proximaPergunta();
+      } else {
+        Alert(
+          context: context,
+          type: AlertType.error,
+          title: "Acabou o jogo!",
+          desc: "Aperte o botão para começar de novo.",
+          buttons: [
+            DialogButton(
+              child: Text(
+                "Reiniciar",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              onPressed: () {
+                setState(() {
+                  cerebroPerguntador.perguntaNumero(0);
+                });
+              }
+            )
+          ],
+        ).show();
+      }
 
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +85,8 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                perguntas[perguntaNumero],
+                cerebroPerguntador
+                    .getPergunta(cerebroPerguntador.getPerguntaNumero()),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -77,14 +110,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if(respostas[perguntaNumero]==true) {
-                  print('Acertou');
-                } else {
-                  print('Errou!');
-                }
-                setState(() {
-                  perguntaNumero++;
-                });
+                checagem(true);
                 //The user picked true.
               },
             ),
@@ -103,14 +129,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if(respostas[perguntaNumero]==false) {
-                  print('Acertou');
-                } else {
-                  print('Errou!');
-                }
-                setState(() {
-                  perguntaNumero++;
-                });
+                checagem(false);
                 //The user picked false.
               },
             ),
@@ -118,14 +137,14 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Row(
           children: placar,
-            // Icon(
-            //   Icons.check,
-            //   color: Colors.green,
-            // ),
-            // Icon(
-            //   Icons.close,
-            //   color: Colors.red,
-            // ),
+          // Icon(
+          //   Icons.check,
+          //   color: Colors.green,
+          // ),
+          // Icon(
+          //   Icons.close,
+          //   color: Colors.red,
+          // ),
         )
       ],
     );
