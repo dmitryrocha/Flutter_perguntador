@@ -66,7 +66,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
-                  cerebroPerguntador.perguntaNumero(0);
+                  Navigator.pop(context);
                 });
               }
             )
