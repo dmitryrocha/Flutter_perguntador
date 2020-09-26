@@ -20,7 +20,8 @@ class CerebroPerguntador {
     Pergunta('Morcegos são cegos?', false),
     Pergunta('A maior parte do oxigênio da Terra vem das árvores', false),
     Pergunta('A luz é afetada pela gravidade?', true),
-    Pergunta('Ciranças têm mais ossos no corpo que adultos?', true)
+    Pergunta('Ciranças têm mais ossos no corpo que adultos?', true),
+    Pergunta('Está é a última pergunta?', true)
   ];
 
   void proximaPergunta() {
