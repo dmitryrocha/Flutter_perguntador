@@ -68,6 +68,7 @@ class _QuizPageState extends State<QuizPage> {
                 setState(() {
                   Navigator.pop(context);
                 });
+                count = 0;
               }
             )
           ],
