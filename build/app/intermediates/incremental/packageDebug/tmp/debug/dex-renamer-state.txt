@@ -1,4 +1,4 @@
-#Thu Sep 24 15:59:32 BRT 2020
-base.0=/home/dmitryrocha/Documentos/Workspace/Udemy/Flutter/Flutter_perguntador/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Sat Sep 26 17:04:51 BRT 2020
+base.0=D\:\\srcD\\Workspace\\Flutter\\Flutter_perguntador\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

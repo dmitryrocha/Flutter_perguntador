@@ -30,6 +30,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> placar = [];
+  int count = 0;
 
   void checagem(bool respostaDada) {
     setState(() {
@@ -40,6 +41,7 @@ class _QuizPageState extends State<QuizPage> {
           Icons.check,
           color: Colors.green,
         ));
+        count++;
       } else {
         placar.add(Icon(
           Icons.close,
@@ -49,11 +51,13 @@ class _QuizPageState extends State<QuizPage> {
       if(cerebroPerguntador.getPerguntaNumero() < cerebroPerguntador.tamanhoLista()-1) {
         cerebroPerguntador.proximaPergunta();
       } else {
+        placar = [];
+        cerebroPerguntador.perguntaNumero(0);
         Alert(
           context: context,
           type: AlertType.error,
           title: "Acabou o jogo!",
-          desc: "Aperte o botão para começar de novo.",
+          desc: "Seu placar foi de: $count\nAperte o botão para começar de novo.",
           buttons: [
             DialogButton(
               child: Text(

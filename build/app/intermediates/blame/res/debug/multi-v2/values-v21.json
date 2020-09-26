@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dmitryrocha/Documentos/Workspace/Udemy/Flutter/Flutter_perguntador/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
+            "outputFile": "D:\\srcD\\Workspace\\Flutter\\Flutter_perguntador\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
-                    "source": "/home/dmitryrocha/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/res/values-v21/values-v21.xml",
+                    "source": "C:\\Users\\dmy_s\\.gradle\\caches\\transforms-2\\files-2.1\\e9dab9c67c1ee3668e0bbf86c6d8cbd8\\core-1.1.0\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

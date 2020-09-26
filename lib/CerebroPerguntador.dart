@@ -7,21 +7,21 @@ class CerebroPerguntador {
   int _perguntaNumero = 0;
 
   List<Pergunta> _listaDePerguntas = [
-    Pergunta('Tonga é um país da África?', false),
-    Pergunta('Limpar os ouvidos com cotonete é saudável?', false),
-    Pergunta('A África está localizada nos quatro hemisférios terrestres (Hemisférios Norte, Sul, Ocidental e Oriental)?', true),
-    Pergunta('Porto Rico é um país?', false),
-    Pergunta('Carvão clareia os dentes?', false),
-    Pergunta('Cães precisam ter filhotes antes da castração?', false),
-    Pergunta('O Vaticano é mais densamente populoso que a China?', true),
-    Pergunta('Palitar os dentes faz mal?', true),
-    Pergunta('Avestruzes enterram a cabeça quando se sentem ameaçados?', false),
-    Pergunta('O pescoço de uma girafa tem o mesmo número de vértebras quer o de um homem?', true),
-    Pergunta('Morcegos são cegos?', false),
-    Pergunta('A maior parte do oxigênio da Terra vem das árvores', false),
-    Pergunta('A luz é afetada pela gravidade?', true),
-    Pergunta('Ciranças têm mais ossos no corpo que adultos?', true),
-    Pergunta('Está é a última pergunta?', true)
+    Pergunta(pergunta:'Tonga é um país da África?', resposta:false),
+    Pergunta(pergunta:'Limpar os ouvidos com cotonete é saudável?', resposta:false),
+    Pergunta(pergunta:'A África está localizada nos quatro hemisférios terrestres (Hemisférios Norte, Sul, Ocidental e Oriental)?', resposta:true),
+    Pergunta(pergunta:'Porto Rico é um país?', resposta:false),
+    Pergunta(pergunta:'Carvão clareia os dentes?', resposta:false),
+    Pergunta(pergunta:'Cães precisam ter filhotes antes da castração?', resposta:false),
+    Pergunta(pergunta:'O Vaticano é mais densamente populoso que a China?', resposta:true),
+    Pergunta(pergunta:'Palitar os dentes faz mal?', resposta:true),
+    Pergunta(pergunta:'Avestruzes enterram a cabeça quando se sentem ameaçados?', resposta:false),
+    Pergunta(pergunta:'O pescoço de uma girafa tem o mesmo número de vértebras quer o de um homem?', resposta:true),
+    Pergunta(pergunta:'Morcegos são cegos?', resposta:false),
+    Pergunta(pergunta:'A maior parte do oxigênio da Terra vem das árvores', resposta:false),
+    Pergunta(pergunta:'A luz é afetada pela gravidade?', resposta:true),
+    Pergunta(pergunta:'Ciranças têm mais ossos no corpo que adultos?', resposta:true),
+    Pergunta(pergunta:'Está é a última pergunta?', resposta:true)
   ];
 
   void proximaPergunta() {
@@ -31,7 +31,7 @@ class CerebroPerguntador {
   }
 
   String getPergunta(_perguntaNumero) {
-    return _listaDePerguntas[_perguntaNumero].pregunta;
+    return _listaDePerguntas[_perguntaNumero].pergunta;
   }
 
   bool getResposta(_perguntaNumero) {

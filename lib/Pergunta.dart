@@ -1,9 +1,6 @@
 class Pergunta {
-  String pregunta;
+  String pergunta;
   bool resposta;
 
-  Pergunta(String p, bool r){
-    this.pregunta = p;
-    this.resposta = r;
-  }
+  Pergunta({this.pergunta, this.resposta});
 }
